@@ -8,9 +8,11 @@ namespace ariel{
     private:
         int Round;
         vector<Team> Tournament;
+        vector<Game> games;
     public:
         Schedule(League &other);
         int getRound() const;
+        vector<Game> getGames()const;
     };
 }
 
