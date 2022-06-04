@@ -379,7 +379,7 @@ TEST_CASE("Check Sequence Of Victories"){
     League tournament1{};
     Schedule schedule(tournament1);
     Statistical_Analysis check(tournament1,schedule);
-            CHECK(check.SequenceOfVictories()>0);
+    CHECK(check.SequenceOfVictories()>0);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 TEST_CASE("Check Sequence Of Victories"){
@@ -422,5 +422,9 @@ TEST_CASE("Check The Losing Groups"){
     vector<Team> loss=check.getTheLosingGroups(10);
     for (size_t i = 0; i < loss.size(); ++i) {
         CHECK_NOTHROW(loss.at(i).name());
+    }
+    vector<Team> loss2=check.getTheLosingGroups(15);
+    for (size_t i = 0; i < loss.size(); ++i) {
+        CHECK_NOTHROW(loss2.at(i).name());
     }
 }
