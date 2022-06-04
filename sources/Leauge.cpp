@@ -1,8 +1,6 @@
 #include "Leauge.hpp"
 #include "array"
-constexpr int MAX = 26;
-constexpr int MIN_NameSize = 3;
-constexpr double Thousand = 1000.0;
+
 using namespace ariel;
 League::League() {
     srand(time(0));
