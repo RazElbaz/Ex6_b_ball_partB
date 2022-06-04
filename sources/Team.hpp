@@ -14,6 +14,7 @@ namespace ariel{
         Team(string &name, double talent_level);
         string name() const;
         double talentLevel() const;
+        ///////////getters and setters://////////
         void setIn_score(int in);
         void setOut_score(int out);
         void setWin();
@@ -24,6 +25,7 @@ namespace ariel{
         int getWin()const;
         int getLoss()const;
         int getAbsorbentPoints()const;
+        //////////////operators://///////////////
         bool operator==(const Team &other) const{
             return this->name()== other.name();
         }

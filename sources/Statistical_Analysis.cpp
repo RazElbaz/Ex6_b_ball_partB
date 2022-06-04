@@ -24,13 +24,15 @@ vector<Team> Statistical_Analysis::getSlimDifference() {
     /***
      * Slim difference (points scored by a team less points scored by a team)
      */
-    return SlimDifference;}
+    return SlimDifference;
+}
 
 vector<Team> Statistical_Analysis::getTeam_win() {
     /***
      * Ratio of wins and losses
      */
-    return  Teams_win;}
+    return  Teams_win;
+}
 
 vector<Team > Statistical_Analysis::getTheLeadingGroups(int number) {
     /***
