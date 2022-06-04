@@ -38,6 +38,10 @@ TEST_CASE ("Create random groups with an empty constructor and print for checkin
 
 TEST_CASE ("Checking the schedule->if printing good") {
     Schedule schedule{tournament};
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+        CHECK_NOTHROW(schedule.getGames().at(i).Win().name());
+    }
 }
 
 ////////////////////////////////A constructor that receives an external set of 20 sets//////////////////////////////////
@@ -126,6 +130,10 @@ TEST_CASE ("Test of a constructor with 20 sets ") {
     cout << "------------------------------------------" << endl;
     cout << "**************************************************************************************" << endl;
     Schedule schedule{tournament_full};
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+        CHECK_NOTHROW(schedule.getGames().at(i).Win().name());
+    }
 }
 //////////////////////////A constructor that receives an external set of * less * than 20 sets//////////////////////////
 
@@ -183,6 +191,10 @@ TEST_CASE ("Test of a constructor with less than 20 sets ") {
     cout << "------------------------------------------" << endl;
     cout << "**************************************************************************************" << endl;
     Schedule schedule{tournament_full};
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+        CHECK_NOTHROW(schedule.getGames().at(i).Win().name());
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 TEST_CASE ("The property of a vector is greater than 20 ") {
@@ -365,6 +377,10 @@ TEST_CASE("Check The Leading Groups"){
     vector<Team> lead=check.getTheLeadingGroups(10);
     for (size_t i = 0; i < lead.size(); ++i) {
         CHECK_NOTHROW(lead.at(i).name());
+    }
+    vector<Team> lead2=check.getTheLeadingGroups(15);
+    for (size_t i = 0; i < lead.size(); ++i) {
+        CHECK_NOTHROW(lead2.at(i).name());
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
