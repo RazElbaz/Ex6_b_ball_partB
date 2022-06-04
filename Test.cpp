@@ -3,10 +3,10 @@
 #include "vector"
 #include "sources/Schedule.hpp"
 #include "sources/Team.hpp"
-
+#include "sources/Statistical_Analysis.hpp"
 using namespace ariel;
 using namespace std;
-/////////////////////////////////////////////Empty constructor tests////////////////////////////////////////////////////
+///////////////////////////////////////////////Empty constructor tests////////////////////////////////////////////////////
 League tournament{};
 TEST_CASE ("A test that no group competes against itself") {
     vector<Team> teams = tournament.getTeams();
@@ -338,4 +338,89 @@ TEST_CASE("A group with an illegal talent level-> less than 0"){
     CHECK_THROWS(Team (seven, -100000));
     string eight = "h";
     CHECK_THROWS(Team f(eight, -0.01));
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check winners"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+        CHECK_NOTHROW(schedule.getGames().at(i).Win().name());
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check Ratio of wins and losses"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    Statistical_Analysis check(tournament1,schedule);
+    for (size_t i = 0; i < check.getTeam_win().size(); ++i) {
+        CHECK_NOTHROW(check.getTeam_win().at(i).name());
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check The Leading Groups"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    Statistical_Analysis check(tournament1,schedule);
+    vector<Team> lead=check.getTheLeadingGroups(10);
+    for (size_t i = 0; i < lead.size(); ++i) {
+        CHECK_NOTHROW(lead.at(i).name());
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check Sequence Of Losses"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    Statistical_Analysis check(tournament1,schedule);
+    CHECK(check.SequenceOfLosses()>0);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check Sequence Of Victories"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    Statistical_Analysis check(tournament1,schedule);
+            CHECK(check.SequenceOfVictories()>0);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check Sequence Of Victories"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+
+    Statistical_Analysis check(tournament1,schedule);
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+    }
+    CHECK_NOTHROW(check.ScoredMore());
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check Sequence Of Victories"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+
+    Statistical_Analysis check(tournament1,schedule);
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+    }
+    CHECK_NOTHROW(check.ScoredMore());
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check difference"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+
+    Statistical_Analysis check(tournament1,schedule);
+    for (size_t i = 0; i <schedule.getGames().size() ; ++i) {
+        schedule.getGames().at(i).GameResult();
+        CHECK(check.difference(i)>0);
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TEST_CASE("Check The Losing Groups"){
+    League tournament1{};
+    Schedule schedule(tournament1);
+    Statistical_Analysis check(tournament1,schedule);
+    vector<Team> loss=check.getTheLosingGroups(10);
+    for (size_t i = 0; i < loss.size(); ++i) {
+        CHECK_NOTHROW(loss.at(i).name());
+    }
 }
