@@ -3,11 +3,17 @@
 using namespace ariel;
 Game::Game(Team &in, Team &out): In(in), Out(out) ,Out_score(0),In_score(0){}
 void Game::GameResult() {
-    srand(time(0));
+    /**
+     * Add points and bonuses according to the instructions of the task.
+     * Update the points of each group
+     */
+    srand(time(0));//The  rand()  function returns a pseudo-random integer in the range 0 to RAND_MAX inclusive
     int OutRandomScore = Result_min + (rand() % Result_min);
     int InRandomScore =Result_home_min + (rand() % Result_max);
+    //set scores
     setIn_score(InRandomScore);
-    this->Out_score=OutRandomScore;
+    setOut_score(OutRandomScore);
+    //adding bonus
     if (In.talentLevel() > Out.talentLevel()) {
         In_score += bonus;
         this->In.setIn_score(In_score);
@@ -20,9 +26,13 @@ void Game::GameResult() {
 }
 
 Team Game::Win() {
+    /**
+     * return the winner of the game
+     */
     if(this->In_score<=0 || this->Out_score<=0){
         throw ("There is no winner yet");
     }
+    //checking who is the winner
     if (this->In_score>this->Out_score){
         this->In.setWin();
         this->Out.setLoss();
