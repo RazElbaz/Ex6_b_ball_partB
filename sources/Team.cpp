@@ -1,9 +1,9 @@
 #include "Team.hpp"
-#include "iostream"
 using namespace ariel;
 Team::Team(std::string &name, double talent_level) {
-    if(talent_level<minLevel||talent_level>maxLevel){
-        throw ("A class representing a group. Each group has a unique name and level of talent represented by a number (between 0 and 1)");
+    if(talent_level<minLevel||talent_level>maxLevel){throw ("A class representing a group. Each group has a unique name and level of talent represented by a number (between 0 and 1)");}
+    if (name == "\t" || name == "\n" || name.empty() || name == " " || name == "\r"){
+        throw ("Invalid name");
     }
     Name=name;
     TalentLevel=talent_level;
@@ -19,6 +19,7 @@ string Team::name() const{
 double Team::talentLevel() const {
     return this->TalentLevel;
 }
+//getters and setters
 int Team::getIn_score()const {return this->In_score;}
 int Team::getOut_score()const {return this->Out_score;}
 int Team::getAbsorbentPoints() const {return this->AbsorbentPoints;}

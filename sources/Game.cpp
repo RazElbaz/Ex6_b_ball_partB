@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include "iostream"
+
 using namespace ariel;
 Game::Game(Team &in, Team &out): In(in), Out(out) ,Out_score(0),In_score(0){}
 void Game::GameResult() {

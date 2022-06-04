@@ -10,7 +10,6 @@ constexpr int MIN_NameSize = 3;
 constexpr double Thousand = 1000.0;
 constexpr int GroupSize_max=20;
 using namespace std;
-
 namespace ariel{
     class League {
     private:

@@ -32,9 +32,7 @@ namespace ariel {
             this->games.push_back(current);
         }
     }
-
     int Schedule::getRound() const { return this->Round; }
-
     vector<Game> Schedule::getGames() const { return this->games;}
 };
 

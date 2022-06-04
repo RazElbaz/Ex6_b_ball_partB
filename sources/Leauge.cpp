@@ -1,14 +1,11 @@
 #include "Leauge.hpp"
 #include "array"
-
 using namespace ariel;
 League::League() {
     srand(time(0));
     for (int i = 0; i < GroupSize_max; ++i) {
         Team randomTeam = CreateRandomTeam();
         this->Teams.push_back(randomTeam);
-
-
     }
 }
 League::League(vector<Team>& given_teams) {
@@ -16,7 +13,6 @@ League::League(vector<Team>& given_teams) {
         for (const Team &t: given_teams) {
             this->Teams.push_back(t);
         }
-
     } else if(given_teams.size() < GroupSize_max){
         for (const Team &t: given_teams) {
             this->Teams.push_back(t);

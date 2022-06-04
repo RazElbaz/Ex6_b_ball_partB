@@ -8,11 +8,9 @@ constexpr int Result_max=45;
 using namespace std;
 namespace ariel{
     class Game{
-
     public:
         Team In, Out;
         int In_score, Out_score;
-
         Game(Team &in, Team &out);
         void GameResult();
         Team Win();
