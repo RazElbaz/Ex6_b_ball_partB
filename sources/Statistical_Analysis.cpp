@@ -82,7 +82,7 @@ int Statistical_Analysis::SequenceOfLosses() {
 int Statistical_Analysis::ScoredMore(){
     int answer =0;
     for (size_t i = 0; i < this->league.getTeams().size(); ++i) {
-        if((this->league.getTeams().at(i).Out_score+this->league.getTeams().at(i).In_score)>this->league.getTeams().at(i).AbsorbentPoints){
+        if((this->league.getTeams().at(i).getOut_score()+this->league.getTeams().at(i).getIn_score())>this->league.getTeams().at(i).getAbsorbentPoints()){
             answer++;
         }}
     return answer;

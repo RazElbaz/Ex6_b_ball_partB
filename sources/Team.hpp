@@ -8,9 +8,9 @@ namespace ariel{
     private:
         string Name;
         double TalentLevel;
-    public:
         int In_score, Out_score;
         int Win, Loss,AbsorbentPoints;
+    public:
         Team(string &name, double talent_level);
         string name() const;
         double talentLevel() const;
