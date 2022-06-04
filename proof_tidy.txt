@@ -1,0 +1,14 @@
+raz@raz-VirtualBox:~/CLionProjects/c++/CHECK$ make tidy
+clang-tidy sources/Leauge.cpp sources/Game.cpp sources/Team.cpp sources/Schedule.cpp sources/Statistical_Analysis.cpp sources/Game.hpp sources/Team.hpp sources/Schedule.hpp sources/Statistical_Analysis.hpp sources/Leauge.hpp -extra-arg=-std=c++2a -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-owning-memory --warnings-as-errors=* --
+5230 warnings generated.
+8260 warnings generated.
+11297 warnings generated.
+16515 warnings generated.
+22653 warnings generated.
+25683 warnings generated.
+28708 warnings generated.
+33880 warnings generated.
+39940 warnings generated.
+45111 warnings generated.
+Suppressed 45111 warnings (45111 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

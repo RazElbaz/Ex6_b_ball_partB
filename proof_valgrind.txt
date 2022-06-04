@@ -1,0 +1,3 @@
+raz@raz-VirtualBox:~/CLionProjects/c++/CHECK$ make valgrind
+valgrind --tool=memcheck -v --leak-check=full --show-leak-kinds=all  --error-exitcode=99 ./test 2>&1 | { egrep "lost| at " || true; }
+==8726==     in use at exit: 0 bytes in 0 blocks
